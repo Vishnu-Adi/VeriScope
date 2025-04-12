@@ -10,7 +10,7 @@ import uuid
 
 load_dotenv()
 
-pc = Pinecone(api_key="a69bc407-de77-4737-b85a-8905630bb045")
+pc = Pinecone(api_key="pcsk_2gkd5T_3hxi91R3ryHUNYcTiiZEsLUzcz5DGmDshWcdu9RXA6bRaKkuJjHn9ZGN96gR48Q")
 index = pc.Index("semantic-search")
 client = instructor.patch(OpenAI(api_key=os.getenv("OPENAI_API_KEY")))
 

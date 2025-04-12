@@ -29,9 +29,9 @@ def upload_all():
 
     vectors = []
 
-    print(type(data))
+    print(type(data))  # This shows it's a list, not a dictionary
 
-    index_name = "news-articles"
+    index_name = "news-article"
 
     # if index_name not in pc.list_indexes():
     #     pc.create_index(
@@ -44,9 +44,9 @@ def upload_all():
         local_vectors = []
 
     with pc.Index(index_name, pool_threads=30) as index:
-        for i, row in enumerate(data["articles"]):
+        for i, row in enumerate(data):  # Access data directly as a list
             # if i % 10 == 0:
-            print(f"Embedding {i}/{len(data['articles'])}", len(row["text"]))
+            print(f"Embedding {i}/{len(data)}", len(row["text"]) if "text" in row else "No text")
 
             if "text" not in row or not row["text"]:
                 continue
@@ -62,16 +62,14 @@ def upload_all():
                 row["values"] = values
                 local_vectors.append(row)
 
-            if i % 100 == 0 or i == len(data["articles"]) - 1:
-                print(f"Upserting {i}/{len(data['articles'])}")
+            if i % 100 == 0 or i == len(data) - 1:
+                print(f"Upserting {i}/{len(data)}")
                 index.upsert(vectors=vectors)
                 vectors = []
                 if ONE_TIME_RUN:
                     v = {"vectors": local_vectors}
                     with open("local_vectors.json", "w") as f:
                         json.dump(v, f)
-
-    print("Uploading...")
 
     # with pc.Index(index_name, pool_threads=30) as index:
     #     chunks = [vectors[i : i + 500] for i in range(0, len(vectors), 500)]
