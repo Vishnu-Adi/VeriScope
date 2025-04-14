@@ -169,7 +169,7 @@ class Scraper:
         if self.ONE_TIME_RUN:
             local_vectors = []
 
-        with self.pc.Index("news-articles", pool_threads=30) as index:
+        with self.pc.Index("news-article", pool_threads=30) as index:
             for i, row in enumerate(data["articles"]):
                 # if i % 10 == 0:
                 print(f"Embedding {i}/{len(data['articles'])}", len(row["text"]))

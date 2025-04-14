@@ -32,9 +32,9 @@ export function SignupForm({ className, ...props }: SignupFormProps) {
 
   async function onSubmit() {
     setIsLoading(true);
-
+  
     try {
-      if (accessCode == "SynthesisHacks") {
+      if (accessCode == "Veri") {
           console.log("HERE");
           await signup(email, password);
           toast.success("Check your email for a confirmation link!");

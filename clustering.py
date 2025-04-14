@@ -17,7 +17,7 @@ import concurrent
 
 load_dotenv()
 
-ONE_TIME_RUN = True  # Changed to True based on user context and previous errors. Original was False in initial prompt, but corrected to True as per issue discussion.
+ONE_TIME_RUN = True 
 
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 client = instructor.patch(OpenAI(api_key=os.getenv("OPENAI_API_KEY")))
