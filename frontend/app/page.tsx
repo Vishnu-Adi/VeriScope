@@ -19,7 +19,7 @@ export default function Home() {
           // className="w-full max-w-2xl"
           alt="Landing page"
         />
-        <Link href="/news/15db7a48-eaca-42b8-b3f9-1e11cef77792" passHref>
+        <Link href="/news" passHref>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
             Jump into the synthesis
           </button>
