@@ -16,4 +16,3 @@ We analyze over 60,000 articles (scraping an additional 20+ every single minute)
 
 ![agent-flow-chart](flowchart.png)
 
-Built by Christopher Arraya, Ron Nachum, & Pranav Ramesh.
